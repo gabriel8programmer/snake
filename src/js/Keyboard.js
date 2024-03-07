@@ -9,7 +9,7 @@ function Keyboard(){
 
     this.setKeyPressed = function(keyPressed){
         this.keyPressed = keyPressed;
-    }.bind(this);
+    }
 
     this.init = function(){
         document.addEventListener("keydown", (e)=> {
