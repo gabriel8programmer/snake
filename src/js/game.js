@@ -40,8 +40,7 @@ function Game(canvas) {
 
         //create the snake of the game
         this.snake = new Snake(
-            this.width / 2 - this.tileSize / 2,
-            this.height / 2 - this.tileSize / 2,
+            [[15, 13], [15, 14], [15, 15]],
             this.tileSize,
             this.tileSize,
             "#0a0"
@@ -75,7 +74,7 @@ function Game(canvas) {
         //render apple
         this.renderObj({ ...this.apple }, "#f00");
         //render snake
-        this.renderObj({ ...this.snake }, this.snake.c);
+        this.snake.render(this.ctx);
         //render score
         this.renderScore();
     }
@@ -124,18 +123,8 @@ function Game(canvas) {
     }
 
     this.teleportSnake = function () {
-        //test snake x
-        if (this.snake.x < 0) {
-            this.snake.setX(this.width - this.snake.w);
-        } else if (this.snake.x > this.width - this.snake.w) {
-            this.snake.setX(0);
-        }
-        //test snake y
-        if (this.snake.y < 0) {
-            this.snake.setY(this.width - this.snake.h);
-        } else if (this.snake.y > this.width - this.snake.h) {
-            this.snake.setY(0);
-        }
+        this.snake.body.forEach((p,i) => {
+        })
     }
 
     this.collideSnakeWithApple = function () {
